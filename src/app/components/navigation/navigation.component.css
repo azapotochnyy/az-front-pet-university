@@ -1,0 +1,64 @@
+
+.nav-icons {
+  fill: white;
+}
+
+.nav-icons:hover {
+  fill: #3CB878CC;
+}
+
+.header-list-text-item-link:hover {
+  color: #3CB878CC;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 41px;
+}
+
+.header-list-icons {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+}
+
+.header-list-icons-item:not(:first-child) {
+  margin-left: 24px;
+}
+
+.header-list-icons-item:last-child {
+  margin-right: 24px;
+}
+
+.header-list-icons::after {
+  content: "";
+  border-right: rgba(255, 255, 255, 0.9) solid 2px;
+}
+
+.header-list-text {
+  display: flex;
+  list-style: none;
+  padding-left: 0;
+  margin-left: 27px;
+  padding-right: 79px;
+
+}
+
+.header-list-text-item {
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  color: #FFFFFF;
+
+}
+
+.header-list-text-item-link {
+  margin-left: 5px;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 14px;
+  color: #FFFFFF;
+  text-decoration: none;
+}

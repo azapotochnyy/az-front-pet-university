@@ -1,0 +1,60 @@
+<form class="sight-up-form" (ngSubmit)="sendRequest()">
+
+  <mat-form-field class="mat-field-full-width">
+    <mat-label>Name</mat-label>
+    <input type="text" matInput [formControl]="name" [errorStateMatcher]="matcher"
+           placeholder="Name">
+    @if (name.hasError('required')) {
+    <mat-error>Name is <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="mat-field-full-width">
+    <mat-label>Last name</mat-label>
+    <input type="text" matInput [formControl]="lastName" [errorStateMatcher]="matcher"
+           placeholder="Last name">
+    @if (lastName.hasError('required')) {
+    <mat-error>Last name <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="mat-field-full-width">
+    <mat-label>Email</mat-label>
+    <input type="email" matInput [formControl]="emailFormControl" [errorStateMatcher]="matcher"
+           placeholder="Ex. pat@example.com">
+    @if (emailFormControl.hasError('email') && !emailFormControl.hasError('required')) {
+    <mat-error>Please enter a valid email address</mat-error>
+    }
+    @if (emailFormControl.hasError('required')) {
+    <mat-error>Email is <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+
+
+  <mat-form-field class="mat-field-full-width">
+    <mat-label>Password</mat-label>
+    <input type="text" matInput [formControl]="password" [errorStateMatcher]="matcher"
+           placeholder="Choose Password">
+    @if (password.hasError('required')) {
+    <mat-error>Password <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field class="mat-field-full-width">
+    <mat-label>Confirm Password</mat-label>
+    <input type="text" matInput [formControl]="passwordConfirm" [errorStateMatcher]="matcher"
+           placeholder="Confirm Password">
+    @if (passwordConfirm.hasError('required')) {
+    <mat-error>Password <strong>required</strong></mat-error>
+    }
+  </mat-form-field>
+
+
+  <button mat-flat-button color="my-app-primary" [disabled]="name.invalid || lastName.invalid || emailFormControl.invalid || password.invalid ||
+  passwordConfirm.invalid || (password.value!==passwordConfirm.value)" class="submit-button" type="submit">
+                          <span class="submit-button-text">
+                              Create Account
+                          </span>
+  </button>
+</form>
+
