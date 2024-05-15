@@ -18,6 +18,9 @@ import {AuthInterceptor} from "./service/http-interceptors/auth-interceptor";
 import {ProfileComponent} from "./components/profile/profile.component";
 import {AppRoutingModule} from "./app.routing.module";
 import {NotesComponent} from "./components/notes/notes.component";
+import {initializeApp, provideFirebaseApp} from "@angular/fire/app";
+import {environment} from "../environments/environment";
+import {getFirestore, provideFirestore} from "@angular/fire/firestore";
 
 @NgModule({
   declarations: [IndexPageComponent, AppComponent, NavigationComponent, AuthorisationComponent, SignUpComponent,
@@ -34,6 +37,8 @@ import {NotesComponent} from "./components/notes/notes.component";
       useClass: AuthInterceptor,
       multi: true,
     },
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideFirestore(() => (getFirestore()))
   ]
 })
 export class AppModule {
